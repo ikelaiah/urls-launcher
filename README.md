@@ -2,7 +2,7 @@
 
 I work with multiple types of project. For each project, I need specific access to various web resources. Due to the busyness of the day, I may lose certain tabs or close them accidentally. Additionally, I need to be able to organise and categorise new URLs quickly.
 
-To speed up my work, I wrote a little D program that reads lists of *must-have* URLs in a text file, and launch these URLs in the default browser.
+To speed up my work, I wrote a little D program that reads a list of *must-have* URLs in a text file, and launch these URLs in the default browser.
 
 When I am working on Azure, I can run the following to open specific Azure resources.
 
