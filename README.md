@@ -20,7 +20,7 @@ etc.
 
 ## Justification
 
-Why not use Google Bookmark manager and use the `Open All` option?
+Why not use the Bookmark manager in Chrome and use the `Open All` option?
 
 Well, I could.
 
