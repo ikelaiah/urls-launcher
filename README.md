@@ -26,7 +26,7 @@ Well, I could.
 
 With URLs-in-text-files approach, I can organise and categorise my URLs quickly.
 
-As a bonus, I can share a copy of important URLs to my colleages as a text file.
+As a bonus, I can share important URLs to my colleages as a text file.
 
 
 ## Installation
