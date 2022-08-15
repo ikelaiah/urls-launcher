@@ -1,6 +1,6 @@
 # URLs Launcher
 
-I work with multiple types of projects. For each project, I need specific access to various web resources. Due to the busyness of the day, I may lose certain tabs or close them accidentally. Additionally, I need to be able to organise and categorise new URLs quickly.
+I work with multiple types of project. For each project, I need specific access to various web resources. Due to the busyness of the day, I may lose certain tabs or close them accidentally. Additionally, I need to be able to organise and categorise new URLs quickly.
 
 To speed up my work, I wrote a little D program that reads lists of *must-have* URLs in a text file, and launch these URLs in the default browser.
 
@@ -53,14 +53,12 @@ Alternatively, if you have the dmd compiler installed, you can run this like a s
 $ rdmd urls-launcher.d -i <input-file>
 ```
 
-Note
+**Note**
 
 - If a line contains a invalid URL, the line will be skipped.
 - An empty line will be skipped
 - If a line contains multiple valid URLs, only the first one will be launched.
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
