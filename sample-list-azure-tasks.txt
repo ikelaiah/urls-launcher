@@ -1,0 +1,9 @@
+Azure Tasks
+https://outlook.office.com/mail/
+https://tasks.office.com/<your-org-domain>/en-AU/Home/Planner/#/plantaskboard?groupId=<your-org-group-id>&planId=<plan-id>
+https://portal.azure.com/
+https://portal.azure.com/<org-id>/resource/subscriptions/<subs-id>/resourceGroups/<resource-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/overview 
+https://portal.azure.com/<org-id>/resource/subscriptions/<subs-id>/resourceGroups/<resource-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/overview
+https://portal.azure.com/<org-id>/resource/subscriptions/<subs-id>/resourceGroups/<resource-name>/providers/Microsoft.Logic/workflows/<name>/logicApp
+https://dev.azure.com/<your-repo>/
+https://dev.azure.com/<your-repo>/
