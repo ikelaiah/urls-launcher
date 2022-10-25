@@ -4,10 +4,10 @@ import std.stdio : writeln, File, KeepTerminator;
 import std.file : exists;
 import std.range;
 import std.ascii;
-import std.getopt : getopt, GetoptResult, defaultGetoptPrinter;
+import std.getopt;
 import std.process : browse;
 import core.thread.osthread;
-import core.time: dur;
+import core.time : dur;
 import std.regex : Regex, regex, Captures, matchFirst;
 import std.conv : to;
 
@@ -15,24 +15,31 @@ void main(string[] args)
 {
     string prog_name = "URLs Launcher";
     string input_filename = "";
+    bool is_verbose = false;
+    int time_delay = 1;
 
     // Get command line option
-    GetoptResult user_args = getopt(args,
-        "input|i", "An input file, a list of URLs separated by a new line.", &input_filename);
+    GetoptResult user_args = getopt(
+        args,
+        std.getopt.config.required,
+        "input|i", "A list of URLs separated by a new line.", &input_filename,
+        "verbose|v", "Display verbose messages on console. (Default = true).", &is_verbose,
+        "delay|d", "Time to delay between launching each URL in seconds. (Default = 1).", &time_delay
+    );
 
     // Does user need help?
     if (user_args.helpWanted)
     {
-        defaultGetoptPrinter("Command line option for " ~ prog_name ~ ".",
+        defaultGetoptPrinter("Command line options for " ~ prog_name ~ ".\n",
             user_args.options);
     }
 
     // Is input file specified?
     if (input_filename.length == 0)
     {
-        writeln(prog_name ~ ": No file specified.\n");
-        defaultGetoptPrinter("Command line options for Open URLs.",
-            user_args.options);
+        writeln("\n" ~ prog_name ~ ": No input file specified.\n");
+        //defaultGetoptPrinter("Command line options for Open URLs.",
+        //    user_args.options);
         return;
     }
 
@@ -44,11 +51,12 @@ void main(string[] args)
     }
     else
     {
-        writeln(prog_name ~ ": reading --" ~ input_filename ~ "--");
+        if (is_verbose)
+            writeln(prog_name ~ ": reading --" ~ input_filename ~ "--");
     }
 
     // Setup regex for validating URLs
-    // Source: https://regexr.com/39nr7
+    // Adapted from: https://regexr.com/39nr7
     Regex!char r = regex(
         r"[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\-\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)");
 
@@ -68,12 +76,16 @@ void main(string[] args)
             continue;
 
         // open urls
-        writeln(prog_name ~ ": " ~ captures[0]);
-        Thread.sleep(dur!("seconds")(1));
+        if (is_verbose)
+            writeln(prog_name ~ ": " ~ captures[0]);
+
+        Thread.sleep(dur!("seconds")(time_delay));
         browse(captures[0]);
         line_count += 1;
     }
 
-    writeln(prog_name ~ ": processed " ~ to!string(line_count) ~ " lines.");
+    if (is_verbose)
+        writeln(prog_name ~ ": processed " ~ to!string(line_count) ~ " lines.");
+
     writeln(prog_name ~ ": completed");
 }
