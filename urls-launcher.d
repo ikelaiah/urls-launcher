@@ -30,7 +30,7 @@ void main(string[] args)
     // Does user need help?
     if (user_args.helpWanted)
     {
-        defaultGetoptPrinter("Command line options for " ~ prog_name ~ ".\n",
+        defaultGetoptPrinter("Launches URLs (in a text file) using the default browser of the OS.",
             user_args.options);
     }
 
@@ -38,8 +38,6 @@ void main(string[] args)
     if (input_filename.length == 0)
     {
         writeln("\n" ~ prog_name ~ ": No input file specified.\n");
-        //defaultGetoptPrinter("Command line options for Open URLs.",
-        //    user_args.options);
         return;
     }
 
